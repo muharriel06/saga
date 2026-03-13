@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kesan & Pesan | SAGA</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* 📜 Custom Styling for Quotes Section */
+    .quotes-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        margin-bottom: 60px;
+    }
+    .quote-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        padding: 30px;
+        border-radius: 20px;
+        border: 1px solid rgba(189, 159, 103, 0.2);
+        position: relative;
+        transition: 0.3s;
+    }
+    .quote-card:hover {
+        border-color: #bd9f67;
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.08);
+    }
+    .quote-text {
+        font-style: italic;
+        color: #eee;
+        line-height: 1.7;
+        margin-bottom: 15px;
+        font-size: 1rem;
+    }
+    .quote-author {
+        color: #bd9f67;
+        font-weight: bold;
+        text-align: right;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+    }
+    .quote-icon {
+        position: absolute;
+        top: 10px;
+        left: 20px;
+        font-size: 4rem;
+        color: rgba(189, 159, 103, 0.1);
+        font-family: serif;
+    }
+
+    .section-title {
+        text-align: center;
+        color: #bd9f67;
+        margin-bottom: 40px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+    }
+
+    .pimpinan-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 25px;
+        margin-bottom: 80px;
+    }
+
+    /* 🖼️ Container untuk 1 Foto Guru Bersama */
+    .guru-group-container {
+        position: relative;
+        width: 100%;
+        border-radius: 20px;
+        overflow: hidden;
+        border: 2px solid rgba(189, 159, 103, 0.4);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        transition: 0.4s;
+    }
+    .guru-group-container img {
+        width: 100%;
+        display: block;
+        filter: grayscale(20%);
+        transition: 0.5s;
+    }
+    .guru-group-container:hover img {
+        filter: grayscale(0%);
+    }
+    .guru-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        background: linear-gradient(transparent, rgba(0,0,0,0.9));
+        text-align: center;
+        color: #bd9f67;
+        font-weight: bold;
+        letter-spacing: 2px;
+        font-size: 0.9rem;
+    }
+</style>
+</head>
+<body>
+  <div class="background_page"></div>
+
+  <div class="star-container">
+    <div class="meteor"></div>
+    <div class="meteor"></div>
+    <div class="meteor"></div>
+    <div class="meteor"></div>
+    <div class="meteor"></div>
+  </div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="bio.html">Bio Student</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="pesan.html">Kesan & Pesan</a>
+  </nav>
+
+  <div class="main-container fade-in">
+    
+    <h1 class="section-title">Kesan & Pesan</h1>
+    <div class="quotes-container">
+        <div class="quote-card">
+            <div class="quote-icon">“</div>
+            <p class="quote-text">"Waktu mungkin berlalu, tapi kenangan di Dayah ini akan tetap abadi dalam setiap langkah perjalanan kita ke depan."</p>
+            <p class="quote-author">— SAGA Student</p>
+        </div>
+
+        <div class="quote-card">
+            <div class="quote-icon">“</div>
+            <p class="quote-text">"Bukan tentang seberapa lama kita bersama, tapi seberapa berarti setiap detik yang telah kita lalui di sini."</p>
+            <p class="quote-author">— Angkatan SAGA</p>
+        </div>
+
+        <div class="quote-card">
+            <div class="quote-icon">“</div>
+            <p class="quote-text">"Berpisah untuk tumbuh, mengenang agar tetap utuh. Sampai jumpa di puncak kesuksesan kawan-kawan semua."</p>
+            <p class="quote-author">— Alumni 2026</p>
+        </div>
+    </div>
+
+    <h2 class="section-title">Pimpinan Dayah</h2>
+    <div class="pimpinan-grid">
+        <div class="card">
+            <img src="photo_pimpinan/pimpinan1.jpg" alt="Pimpinan" loading="lazy">
+            <h2>Pimpinan 1</h2>
+            <p>Struktur Pimpinan</p>
+        </div>
+        <div class="card">
+            <img src="photo_pimpinan/pimpinan2.jpg" alt="Pimpinan" loading="lazy">
+            <h2>Pimpinan 2</h2>
+            <p>Struktur Pimpinan</p>
+        </div>
+        <div class="card">
+            <img src="photo_pimpinan/pimpinan3.jpg" alt="Pimpinan" loading="lazy">
+            <h2>Pimpinan 3</h2>
+            <p>Struktur Pimpinan</p>
+        </div>
+        <div class="card">
+            <img src="photo_pimpinan/pimpinan4.jpg" alt="Pimpinan" loading="lazy">
+            <h2>Pimpinan 4</h2>
+            <p>Struktur Pimpinan</p>
+        </div>
+    </div>
+
+    <h2 class="section-title">Dewan Guru</h2>
+    <div class="guru-group-container">
+        <img src="photo_guru/dewan_guru_bersama.jpg" alt="Seluruh Dewan Guru" loading="lazy">
+        <div class="guru-overlay">
+            KELUARGA BESAR DEWAN GURU DAYAH DARUL QUR'AN ACEH
+        </div>
+    </div>
+
+  </div>
+
+  <footer style="text-align: center; padding: 60px 0; color: rgba(189,159,103,0.5); font-size: 0.8rem;">
+    &copy; 2026 SAGA - Berpisah Untuk Tumbuh
+  </footer>
+
+</body>
+</html>
