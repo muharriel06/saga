@@ -10,13 +10,49 @@
 
   <div class="background_page"></div>
   
- <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="bio.html">Bio Student</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="pesan.html">Kesan & Pesan</a>
-  </nav>
+<div id="preloader">
+    <div class="loader-content">
+        <img src="logosaga.png" alt="SAGA Logo" class="loader-logo">
+    </div>
+</div>
+
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+        <img src="logosaga.png" alt="Logo">
+        <span></span>
+    </a>
+    
+    <input type="checkbox" id="nav-check">
+    <label for="nav-check" class="nav-btn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+    
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="bio.html">Bio Student</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="pesan.html">Kesan & Pesan</a>
+    </div>
+  </div>
+</nav>
+
+<script>
+    window.addEventListener('load', function() {
+        const loader = document.getElementById('preloader');
+        if (loader) {
+            setTimeout(() => {
+                loader.classList.add('fade-out');
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 1000); 
+            }, 1500); 
+        }
+    });
+</script>
 
   <section class="hero-center fade-in">
     <h1>SAGA</h1>
