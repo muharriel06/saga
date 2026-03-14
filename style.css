@@ -65,31 +65,121 @@ body {
         125px 375px 3px rgba(255, 255, 255, 0.8);
 }
 
-/* 🧭 NAVBAR */
-nav {
+/* 🧭 MODERN RESPONSIVE NAVBAR */
+.navbar {
     position: sticky;
     top: 0;
-    z-index: 100;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(10px);
-    padding: 1.2rem;
-    display: flex;
-    justify-content: center;
-    gap: 25px;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(189, 159, 103, 0.3);
 }
 
-nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.3s;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 20px;
 }
 
-nav a:hover { color: #bd9f67; }
+.nav-logo {
+    color: #bd9f67;
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+.nav-links a:hover {
+    color: #bd9f67;
+    background: rgba(189, 159, 103, 0.1);
+}
+
+/* 📱 MOBILE NAVIGATION (Burger Menu) */
+#nav-check {
+    display: none;
+}
+
+.nav-btn {
+    display: none;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .nav-btn {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .nav-btn span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: #bd9f67;
+        border-radius: 3px;
+        transition: 0.3s;
+    }
+
+    .nav-links {
+        position: absolute;
+        display: block;
+        width: 100%;
+        background: rgba(10, 10, 10, 0.98);
+        height: 0px;
+        transition: all 0.4s ease-in;
+        overflow-y: hidden;
+        top: 60px;
+        left: 0;
+        padding: 0;
+    }
+
+    .nav-links a {
+        display: block;
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+        border-bottom: 1px solid rgba(189, 159, 103, 0.1);
+    }
+
+    /* Logika buka menu saat checkbox dicentang */
+    #nav-check:checked ~ .nav-links {
+        height: calc(100vh - 60px);
+        overflow-y: auto;
+    }
+
+    /* Animasi icon burger jadi X (opsional) */
+    #nav-check:checked ~ .nav-btn span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+    #nav-check:checked ~ .nav-btn span:nth-child(2) {
+        opacity: 0;
+    }
+    #nav-check:checked ~ .nav-btn span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -7px);
+    }
+}
 
 /* 🏠 HERO SECTION */
 .hero-center {
@@ -238,61 +328,134 @@ nav a:hover { color: #bd9f67; }
     box-shadow: 0 0 20px rgba(189, 159, 103, 0.4);
     transform: scale(1.05);
 }
-/* 🌠 METEOR EFFECT */
-.star-container {
+/* --- LOADING SCREEN CSS --- */
+#preloader {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Di atas background_page tapi di bawah konten */
-    overflow: hidden;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: #000;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease, filter 1s ease;
+}
+
+.loader-logo {
+    width: 150px;
+    filter: drop-shadow(0 0 20px rgba(189, 159, 103, 0.5));
+    animation: pulse 2s infinite;
+}
+
+#preloader.fade-out {
+    opacity: 0;
+    filter: blur(20px);
     pointer-events: none;
 }
 
-.meteor {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 2px;
-    height: 2px;
-    background: #fff;
-    border-radius: 50%;
-    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1), 
-                0 0 0 8px rgba(255, 255, 255, 0.1), 
-                0 0 20px rgba(255, 255, 255, 1);
-    animation: animate meteor 3s linear infinite;
-    opacity: 0;
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
 }
 
-.meteor::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 300px;
-    height: 1px;
-    background: linear-gradient(90deg, #fff, transparent);
+/* --- NAVBAR CSS (PC & MOBILE) --- */
+.navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(189, 159, 103, 0.2);
 }
 
-/* Animasi Pergerakan */
-@keyframes meteor {
-    0% {
-        transform: rotate(315deg) translateX(0);
-        opacity: 1;
-    }
-    70% {
-        opacity: 1;
-    }
-    100% {
-        transform: rotate(315deg) translateX(-1000px);
-        opacity: 0;
-    }
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 20px;
 }
 
-/* Posisi & Delay Berbeda untuk Setiap Meteor */
-.meteor:nth-child(1) { top: 0; right: 0; left: initial; animation-delay: 0s; animation-duration: 1s; }
-.meteor:nth-child(2) { top: 0; right: 80px; left: initial; animation-delay: 0.2s; animation-duration: 3s; }
-.meteor:nth-child(3) { top: 80px; right: 0; left: initial; animation-delay: 0.4s; animation-duration: 2s; }
-.meteor:nth-child(4) { top: 0; right: 180px; left: initial; animation-delay: 0.6s; animation-duration: 1.5s; }
-.meteor:nth-child(5) { top: 0; right: 400px; left: initial; animation-delay: 0.8s; animation-duration: 2.5s; }
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #bd9f67;
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+}
+
+.nav-logo img {
+    height: 45px;
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-links a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #bd9f67;
+    background: rgba(189, 159, 103, 0.1);
+    transform: translateY(-2px);
+}
+
+/* --- MOBILE RESPONSIVE --- */
+#nav-check { display: none; }
+.nav-btn { display: none; cursor: pointer; }
+
+@media (max-width: 850px) {
+    .nav-btn {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .nav-btn span {
+        width: 28px; height: 3px;
+        background: #bd9f67;
+        border-radius: 5px;
+        transition: 0.4s;
+    }
+    .nav-links {
+        position: absolute;
+        top: 65px; left: 0;
+        width: 100%;
+        background: rgba(5, 5, 5, 0.98);
+        flex-direction: column;
+        gap: 0;
+        height: 0;
+        overflow: hidden;
+        transition: 0.4s ease-in-out;
+    }
+    .nav-links a {
+        padding: 25px;
+        text-align: center;
+        border-bottom: 1px solid rgba(189, 159, 103, 0.1);
+        width: 100%;
+    }
+    #nav-check:checked ~ .nav-links {
+        height: 100vh;
+    }
+    #nav-check:checked ~ .nav-btn span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+    #nav-check:checked ~ .nav-btn span:nth-child(2) { opacity: 0; }
+    #nav-check:checked ~ .nav-btn span:nth-child(3) { transform: rotate(-45deg) translate(6px, -7px); }
+}
